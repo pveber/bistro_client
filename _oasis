@@ -1,0 +1,22 @@
+OASISFormat: 0.4
+Name:        bistro_client
+Version:     0.0
+Synopsis:    A client library for bistro server
+Authors:     Philippe Veber
+License:     GPL-3.0
+Plugins:     META (0.4), DevFiles (0.4)
+BuildTools:  ocamlbuild
+
+Library bistro_client
+  Path:             lib
+  Modules:          Bistro_client, Bistro_client_api
+  FindlibName:      bistro_client
+  BuildDepends:     bistro.engine, cohttp, ppx_sexp_conv, threads
+  XMETARequires:    bistro.engine, cohttp
+  XMETADescription: Client library for bistro server
+  
+Executable bistro_worker
+  Path:             app
+  MainIs:           bistro_worker.ml
+  BuildDepends:     bistro_client, cohttp.lwt, core
+  CompiledObject:   byte

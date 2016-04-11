@@ -1,0 +1,20 @@
+opam-version: "1.2"
+name: "bistro_client"
+version: "0.0"
+maintainer: "Philippe Veber <philippe.veber@gmail.com>"
+authors: "Philippe Veber <philippe.veber@gmail.com>"
+homepage: "https://github.com/pveber/bistro_client/"
+bug-reports: "https://github.com/pveber/bistro_client/issues"
+license: "GPL3"
+dev-repo: "https://github.com/pveber/bistro_client.git"
+build: [
+  ["./configure" "--prefix=%{prefix}%"]
+  [make]
+]
+install: [make "install"]
+remove: ["ocamlfind" "remove" "bistro_client"]
+depends: [
+  "bistro"
+  "cohttp"
+  "ocamlfind" {build}
+]
